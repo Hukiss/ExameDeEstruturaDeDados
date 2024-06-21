@@ -2,11 +2,126 @@
 <html lang="">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Fila de espera</title>
+    <style>
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      h1, h2 {
+        text-align: center;
+      }
+
+      #adicionar-fila, #remover-fila {
+        margin: 50px;
+        border: 2px solid;
+        padding: 20px;
+        border-radius: 5px;
+      }
+
+      #dicionar, #atender {
+        display: block; 
+        margin: 0 auto; 
+      }
+
+      #insercao {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      
+      #lista-de-fila li {
+        margin-bottom: 10px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
+      
+      #lista-de-fila {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+      }
+
+    </style>
   </head>
+
   <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+
+    <div>
+      <h1>Fila de Espera</h1>
+      <div id="adicionar-fila">
+        <h2>Adicionar à Fila</h2>
+          <div id="insercao">
+            <input type="text" placeholder="Adiciona elementos a fila" id="nome">
+          <button id="adicionar" onclick="adicionarNaFila()">Adicionar</button>
+        </div>
+      </div>
+
+      <div id="remover-fila">
+        <h2>Fila de Atendimento</h2>
+        <il id="lista-de-fila"></il>
+        <button id="atender" ondblclick="atenderPrimeiro()">Atender o primeiro a chegar</button>
+      </div>
+    </div>
+
+    <!--
+        Criei trés funções responsaveis pela representação da fila de espera, e as funções são:
+        adicionarNaFila() -- responsavel por adicionar elementos na fila;
+        atenderPrimeiro() -- responsavel por remover da lista dos os valores do índice 0;
+        atualizarLista() -- responsavel por atualizar a lista a cada vez que é inserido ou é removido;
+
+        Todo isso só é possivel graças ao array criado em JavaScript, que quando é criado já vêem com alguns métodos como o shift() que serve para remover o primeiro elemento da fila.
+    -->
+          
+    <script>
+
+      const filaDeEspera = [];
+
+      const nomeInput = document.getElementById('nome');
+      const adicionarButton = document.getElementById('adicionar');
+      const atenderButton = document.getElementById('atender');
+      const listaDeFilaElement = document.getElementById('lista-de-fila');
+
+      adicionarButton.addEventListener('click', adicionarNaFila());
+      atenderButton.addEventListener('click', atenderPrimeiro());
+      
+      function adicionarNaFila() {
+        
+        const nome = nomeInput.value;
+        if (nome) {
+            filaDeEspera.push(nome);
+            atualizarLista();
+            nomeInput.value = '';
+        }
+      
+      }
+
+      function atenderPrimeiro() {
+
+        if (filaDeEspera.length > 0) {
+          const proximoAtendido = filaDeEspera.shift();
+          alert(`Atendeu: ${proximoAtendido}`);
+          atualizarLista();
+        } else {
+          return window.alert('A fila está vazia');
+        }
+
+      }
+
+      function atualizarLista() {
+        listaDeFilaElement.innerHTML = '';
+        filaDeEspera.forEach((nome) => {
+        const liElement = document.createElement('li');
+        liElement.textContent = nome;
+        listaDeFilaElement.appendChild(liElement);
+        });
+      }
+
+    </script>
+
   </body>
 </html>
