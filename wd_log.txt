@@ -12,3 +12,26 @@
 [2024-06-24:13:49:30 WD-TabNine ERROR] Failed to send analytics event, maximizing send backoff policy: Permanent(Error(Http(reqwest::Error { kind: Request, url: Url { scheme: "https", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("notify.tabnine.com")), port: None, path: "/notify/v1", query: None, fragment: None }, source: TimedOut }), State { next_error: None, backtrace: InternalBacktrace { backtrace: None } }))
 [2024-06-24:13:55:24 WD-TabNine ERROR] Failed to refresh id token FirebaseApiError(ReqwestError(reqwest::Error { kind: Request, url: Url { scheme: "https", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("api.tabnine.com")), port: None, path: "/firebase/token/v1/token", query: Some("key=AIzaSyDvB8HaJtgSQztetpPlXE_TQU-0_xgjzm0"), fragment: None }, source: TimedOut }))
 [2024-06-24:14:15:24 WD-TabNine ERROR] Failed to refresh id token FirebaseApiError(ReqwestError(reqwest::Error { kind: Request, url: Url { scheme: "https", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("api.tabnine.com")), port: None, path: "/firebase/token/v1/token", query: Some("key=AIzaSyDvB8HaJtgSQztetpPlXE_TQU-0_xgjzm0"), fragment: None }, source: TimedOut }))
+[2024-06-24:14:44:48 WD-TabNine INFO] 
+============ Tabnine process /home/hukissy/.config/Code - OSS/User/globalStorage/tabnine.tabnine-vscode/binaries/4.171.0/x86_64-unknown-linux-musl/WD-TabNine (99013) started ============
+[2024-06-24:14:44:48 WD-TabNine INFO] 
+============ Tabnine process /home/hukissy/.config/Code - OSS/User/globalStorage/tabnine.tabnine-vscode/binaries/4.171.0/x86_64-unknown-linux-musl/WD-TabNine (99009) started ============
+[2024-06-24:14:44:48 WD-TabNine INFO] terminating because another watchdog is already running.
+[2024-06-24:14:44:48 WD-TabNine INFO] watching new process 98978-TabNine
+[2024-06-24:14:44:56 WD-TabNine INFO] watching new process 99066-TabNine
+[2024-06-24:14:44:56 WD-TabNine INFO] watching new process 99040-TabNine
+[2024-06-24:14:44:56 WD-TabNine INFO] watching new process 99097-TabNine
+[2024-06-24:14:44:56 WD-TabNine INFO] watching new process 99163-TabNine-deep-local
+[2024-06-24:15:17:46 WD-TabNine INFO] stop watching process 98978-TabNine
+[2024-06-24:15:17:46 WD-TabNine INFO] stop watching process 99066-TabNine
+[2024-06-24:16:13:00 WD-TabNine INFO] watching new process 109209-TabNine
+[2024-06-24:16:13:00 WD-TabNine INFO] watching new process 109254-TabNine
+[2024-06-24:17:44:16 WD-TabNine ERROR] Failed to send analytics event, maximizing send backoff policy: Permanent(Error(Http(reqwest::Error { kind: Request, url: Url { scheme: "https", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("notify.tabnine.com")), port: None, path: "/notify/v1", query: None, fragment: None }, source: hyper_util::client::legacy::Error(Connect, ConnectError("dns error", ResolveError { kind: NoRecordsFound { query: Query { name: Name("notify.tabnine.com."), query_type: AAAA, query_class: IN }, soa: None, negative_ttl: None, response_code: Refused, trusted: true } })) }), State { next_error: None, backtrace: InternalBacktrace { backtrace: None } }))
+[2024-06-24:17:44:16 WD-TabNine ERROR] Failed to refresh id token FirebaseApiError(ReqwestError(reqwest::Error { kind: Request, url: Url { scheme: "https", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("api.tabnine.com")), port: None, path: "/firebase/token/v1/token", query: Some("key=AIzaSyDvB8HaJtgSQztetpPlXE_TQU-0_xgjzm0"), fragment: None }, source: hyper_util::client::legacy::Error(Connect, ConnectError("dns error", ResolveError { kind: NoRecordsFound { query: Query { name: Name("api.tabnine.com."), query_type: AAAA, query_class: IN }, soa: None, negative_ttl: None, response_code: Refused, trusted: true } })) }))
+[2024-06-24:17:49:19 WD-TabNine INFO] 
+============ Tabnine process /home/hukissy/.config/Code - OSS/User/globalStorage/tabnine.tabnine-vscode/binaries/4.171.0/x86_64-unknown-linux-musl/WD-TabNine (112168) started ============
+[2024-06-24:17:49:19 WD-TabNine INFO] 
+============ Tabnine process /home/hukissy/.config/Code - OSS/User/globalStorage/tabnine.tabnine-vscode/binaries/4.171.0/x86_64-unknown-linux-musl/WD-TabNine (112161) started ============
+[2024-06-24:17:49:19 WD-TabNine INFO] terminating because another watchdog is already running.
+[2024-06-24:17:49:19 WD-TabNine INFO] terminating because another watchdog is already running.
+[2024-06-24:17:49:19 WD-TabNine ERROR] Failed to send analytics event, maximizing send backoff policy: Permanent(Error(Http(reqwest::Error { kind: Request, url: Url { scheme: "https", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("notify.tabnine.com")), port: None, path: "/notify/v1", query: None, fragment: None }, source: hyper_util::client::legacy::Error(Connect, ConnectError("dns error", ResolveError { kind: NoRecordsFound { query: Query { name: Name("notify.tabnine.com."), query_type: AAAA, query_class: IN }, soa: None, negative_ttl: None, response_code: Refused, trusted: true } })) }), State { next_error: None, backtrace: InternalBacktrace { backtrace: None } }))

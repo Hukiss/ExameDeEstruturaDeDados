@@ -19,15 +19,22 @@ adicionarButton.addEventListener('click', adicionarNaFila());
 atenderButton.addEventListener('click', atenderPrimeiro());
 
 function adicionarNaFila() {
-  
+
   const nome = nomeInput.value;
+
   if (nome) {
+    // Verifica se o nome já está na fila
+    if (filaDeEspera.includes(nome)) {
+      alert(`O nome ${nome} já está na fila.`);
+    } else {
       filaDeEspera.push(nome);
       atualizarLista();
       nomeInput.value = '';
+    }
   }
 
 }
+
 
 function atenderPrimeiro() {
 
