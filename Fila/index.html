@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+    <meta charset="utf-8">
+    <title>Fila de espera</title>
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+
+  <body>
+
+    <div id="fila">
+      <h1>Fila de Espera</h1>
+      <div id="adicionar-fila">
+        <h2>Adicionar à Fila</h2>
+          <div id="insercao">
+            <input type="text" placeholder="Adiciona elementos a fila" id="nome">
+          <button id="adicionar" onclick="adicionarNaFila()">Adicionar</button>
+        </div>
+      </div>
+
+      <div id="remover-fila">
+        <h2>Fila de Atendimento</h2>
+        <il id="lista-de-fila"></il>
+        <button id="atender" ondblclick="atenderPrimeiro()">Atender o primeiro a chegar</button>
+      </div>
+    </div>
+          
+    <script src="script.js"></script>
+    
+  </body>
+</html>

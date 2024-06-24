@@ -1,0 +1,50 @@
+
+body {
+    margin: 0;
+    padding: 0;
+  }
+
+  #fila {
+    margin: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    background: rgb(235, 235, 240);
+  }
+  
+  h1, h2 {
+    text-align: center;
+  }
+
+  #adicionar-fila, #remover-fila {
+    margin: 50px;
+    border: 2px solid;
+    padding: 20px;
+    border-radius: 5px;
+    background: #ccc;
+  }
+
+  #dicionar, #atender {
+    display: block; 
+    margin: 0 auto; 
+  }
+
+  #insercao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  
+  #lista-de-fila li {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  #lista-de-fila {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
