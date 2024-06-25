@@ -33,17 +33,6 @@ class LinkedList {
         this.head = newNode; 
     }
 
-    /*
-    add(data) {
-        if (this.isElementPresent(data)) {
-            window.alert(`Elemento ${data} já foi inserido. Não será possível inserir novamente.`);
-            return;
-        }
-        const newNode = new Node(data);
-        newNode.next = this.head;
-        this.head = newNode;
-    }
-    */
     remove(position) {
         if (!this.head) {
             return;
