@@ -1,114 +1,129 @@
-/* script.js */ 
-
-const novoElementoInput = document.getElementById('novo-elemento');
-const adicionarButton = document.getElementById('adicionar');
-const lista = document.getElementById('lista');
 
 class Node {
-  constructor(data) {
-    this.data = data;
-    this.next = null;
-  }
+    constructor(data) {
+        this.data = data;
+        this.next = null;
+    }
 }
 
-let head = null; // Head of the linked list
-
-adicionarButton.addEventListener('click', () => {
-  const novoElementoValor = novoElementoInput.value.trim();
-  if (novoElementoValor) {
-    if (!verificarExistencia(novoElementoValor)) { // Check before adding
-      const novoNode = new Node(novoElementoValor);
-      // Add new node to the list
-      head = inserirNode(head, novoNode); // Use inserirNode for clarity
-
-      renderizarLista();
-      novoElementoInput.value = '';
+class LinkedList {
+    constructor() {
+        this.head = null;
     }
-  }
+
+    isElementPresent(data) {
+        let current = this.head;
+        while (current) {
+            if (current.data === data) {
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
+
+    add(data) {
+        if (this.isElementPresent(data)) {
+            window.alert(`Elemento ${data} já foi inserido. Não será possível inserir novamente.`);
+            return;
+        }
+        const newNode = new Node(data);
+        newNode.next = null; 
+        newNode.next = this.head;
+        this.head = newNode; 
+    }
+
+    /*
+    add(data) {
+        if (this.isElementPresent(data)) {
+            window.alert(`Elemento ${data} já foi inserido. Não será possível inserir novamente.`);
+            return;
+        }
+        const newNode = new Node(data);
+        newNode.next = this.head;
+        this.head = newNode;
+    }
+    */
+    remove(position) {
+        if (!this.head) {
+            return;
+        }
+        if (position === 0) {
+            this.head = this.head.next;
+            return;
+        }
+        let current = this.head;
+        let previous = null;
+        let index = 0;
+        while (current && index < position) {
+            previous = current;
+            current = current.next;
+            index++;
+        }
+        if (!current) {
+            return;
+        }
+        previous.next = current.next;
+    }
+
+    update(position, newData) {
+        if (!this.head) {
+            return;
+        }
+        let current = this.head;
+        let index = 0;
+        while (current && index < position) {
+            current = current.next;
+            index++;
+        }
+        if (!current) {
+            return;
+        }
+        current.data = newData;
+    }
+
+    display() {
+        let current = this.head;
+        let result = [];
+        while (current) {
+            result.push(current.data);
+            current = current.next;
+        }
+        return result;
+    }
+}
+
+const lista = new LinkedList();
+const adicionar = document.getElementById('adicionar');
+const remover = document.getElementById('remover');
+const posicao = document.getElementById('posicao');
+const nome = document.getElementById('nome');
+const listaElement = document.getElementById('lista');
+
+adicionar.addEventListener('click', () => {
+    const nomeValue = nome.value;
+    if (nomeValue) {
+        lista.add(nomeValue);
+        updateList();
+        nome.value = '';
+    }
 });
 
-function verificarExistencia(value) {
-  let current = head;
-  while (current) {
-    if (current.data === value) {
-      alert(`${value} já existe na lista!`);
-      return true; // Indicate existing value
+remover.addEventListener('click', () => {
+    const posicaoValue = parseInt(posicao.value);
+    if (!isNaN(posicaoValue)) {
+        lista.remove(posicaoValue);
+        updateList();
+        posicao.value = '';
     }
-    current = current.next;
-  }
-  return false; // Indicate non-existing value
-}
+});
 
-function renderizarLista() {
-  lista.innerHTML = ''; // Clear existing list
-
-  let current = head;
-  while (current) {
-    const listaItem = document.createElement('li');
-    const itemSpan = document.createElement('span');
-    const removerButton = document.createElement('button');
-
-    itemSpan.textContent = current.data;
-    removerButton.textContent = 'Remover';
-
-    removerButton.addEventListener('click', () => {
-      head = removerNode(current); 
+function updateList() {
+    listaElement.innerHTML = '';
+    const listItems = lista.display();
+    listItems.forEach((item) => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        listaElement.appendChild(li);
     });
-
-    listaItem.appendChild(itemSpan);
-    listaItem.appendChild(removerButton);
-    lista.appendChild(listaItem);
-
-    current = current.next;
-  }
-}
-
-function removerNode(value) {
-  let index = verificarExistencia(value); // Obtém a posição do nó
-
-  if (index !== -1) { // Verifica se o nó existe
-    if (index === 0) {
-      // Removendo o nó cabeça
-      head = head.next;
-    } else {
-      let previous = null;
-      let current = head;
-
-      // Navega até o nó anterior ao nó a ser removido
-      while (index > 0) {
-        previous = current;
-        current = current.next;
-        index--;
-      }
-
-      // Remove o nó e atualiza as ligações
-      previous.next = current.next;
-    }
-    renderizarLista(); // Atualiza a renderização da lista
-    return true; // Indica que a remoção foi bem-sucedida
-  } else {
-    alert('Node not found in the list!');
-    return false; // Indica que a remoção falhou
-  }
-}
-
-function inserirNode(head, newNode) {
-  
-  if (!head || head.data >= newNode.data) {
-    newNode.next = head;
-    return newNode;
-  }
-
-  let current = head;
-  let previous = null;
-
-  while (current && current.data < newNode.data) {
-    previous = current;
-    current = current.next;
-  }
-
-  previous.next = newNode;
-  newNode.next = current;
-
-  return head;
 }

@@ -1,29 +1,25 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulação de Listas Ligadas Simples</title>
-    <link rel="stylesheet" href="style.css"> <!--importa o arquivo style que é responsavel pela estilização da página principal-->
+    <title>Implementação de listas ligadas</title>
 
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="ligadas">
 
-    <div id="lista-ligada">
-
-        <h1>Simulação de Listas Ligadas Simples</h1>
-
-        <div id="lista-container">
-            <input type="text" id="novo-elemento" placeholder="Novo elemento"> <!--cria uma área para receber os valores que serão inseridos na lista-->
-            <button id="adicionar">Adicionar</button><!--depois de inserido apartir da tag input, envia os dados para ser verificado na lista-->
-            <br><br>
-            <ul id="lista"></ul><!--vai representar as listas ligadas-->
-        </div>
+        <h1>Implementação de listas ligadas</h1>
+        
+        <input type="text" placeholder="Inseri nome" id="nome">
+        <button id="adicionar">Adicionar</button>
+        
+        <ul id="lista"></ul>
+        <input type="text" placeholder="posição" id="posicao">
+        <button id="remover">Remover</button>
+        
     </div>
-
-    <script src="script.js"></script><!--responsavel pela interansão da página, criação da lista assim como a inserção, e remoção e a atualização da página a cada inserção ou remoção de elementos nas listas-->
-
+    <script src="script.js"></script>
 </body>
-</html>
-
+</html> 
